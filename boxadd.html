@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            height: 50px;
+            width: 100px;
+            margin: 10px;
+            color: white;
+            cursor: pointer;
+        }
+        #btn1{
+            background-color: blue;
+        }
+        #btn2{
+            background-color: orange;
+        }
+        #btn3{
+            background-color: red;
+        }
+        #btn4{
+            background-color: green;
+        }
+        body{
+            margin-top: 100px;
+            text-align: center;
+        }
+        #box{
+            display: flex;
+            flex-wrap: wrap;
+            height: 70vh;
+            width: 100%;
+            border: 3px solid black;
+            overflow-y:scroll;
+        }
+        .childbox{
+            animation-name: rotatebox;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+
+        }
+        @keyframes rotatebox {
+            from{
+                transform: rotateX(50deg);
+            }
+            to{
+                
+                transform: rotateX(360deg);
+            }
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <button id="btn1" onclick="addbox('Blue')">Blue</button>
+    <button id="btn2" onclick="addbox('orange')">Orange</button>
+    <button id="btn3" onclick="addbox('red')">Red</button>
+    <button id="btn4" onclick="addbox('green')">Green</button>
+    <div id="box"></div>
+    <script>
+        function addbox(color){
+        let ele=document.createElement('div')
+        ele.style.height='100px'
+        ele.style.width='20px'
+        ele.style.margin='5px'
+        ele.style.borderRadius="50%"
+        ele.style.backgroundColor=color
+        ele.classList='childbox'
+        let a=document.getElementById('box')
+        a.append(ele)
+    }
+    </script>
+</body>
+</html>
